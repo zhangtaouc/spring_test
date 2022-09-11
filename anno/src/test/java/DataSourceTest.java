@@ -4,6 +4,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
 
 import java.sql.Connection;
+import java.util.ResourceBundle;
 
 public class DataSourceTest {
     @Test
@@ -28,5 +29,24 @@ public class DataSourceTest {
         DruidPooledConnection connection = dataSource.getConnection();
         System.out.println(connection);
         connection.close();
+    }
+    @Test
+//    测试手动加载数据源
+    public void test3() throws Exception {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("jdbc");
+        String driver = resourceBundle.getString("jdbc.driver");
+        String url = resourceBundle.getString("jdbc.url");
+        String username = resourceBundle.getString("jdbc.username");
+        String password = resourceBundle.getString("jdbc.password");
+
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName(driver);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        DruidPooledConnection connection = dataSource.getConnection();
+        System.out.println(connection);
+        connection.close();
+
     }
 }
