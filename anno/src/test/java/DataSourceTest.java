@@ -2,8 +2,12 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidPooledConnection;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DataSourceTest {
@@ -31,7 +35,7 @@ public class DataSourceTest {
         connection.close();
     }
     @Test
-//    测试手动加载数据源
+//    测试手动加载数据源 druid的
     public void test3() throws Exception {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("jdbc");
         String driver = resourceBundle.getString("jdbc.driver");
@@ -48,5 +52,27 @@ public class DataSourceTest {
         System.out.println(connection);
         connection.close();
 
+    }
+    @Test
+    // 测试spring帮忙产生c3p0的connection对象
+    public void test4() throws SQLException {
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        DataSource dataSources = app.getBean(DataSource.class);
+//        xml文件里面的id
+//        DataSource dataSources = (DataSource)app.getBean("dataSources");
+        Connection connection = dataSources.getConnection();
+        System.out.println(connection);
+        connection.close();
+    }
+    @Test
+    // 测试spring帮忙产生druid的connection对象
+    public void test5() throws SQLException {
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        DataSource dataSources = app.getBean(DataSource.class);
+//        xml文件里面的id
+        DataSource dataSources = (DataSource)app.getBean("dataSources_d");
+        Connection connection = dataSources.getConnection();
+        System.out.println(connection);
+        connection.close();
     }
 }
