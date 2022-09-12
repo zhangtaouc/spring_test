@@ -5,25 +5,27 @@
        xsi:schemaLocation=
                "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:property-placeholder location="classpath:jdbc.properties" />
-    <bean id="dataSources_d" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="${jdbc.driver}"></property>
-        <property name="url" value="${jdbc.url}"></property>
-        <property name="username" value="${jdbc.username}"></property>
-        <property name="password" value="${jdbc.password}"></property>
-    </bean>
+<!--    <context:property-placeholder location="classpath:jdbc.properties" />-->
+<!--    <bean id="dataSources_d" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="${jdbc.driver}"></property>-->
+<!--        <property name="url" value="${jdbc.url}"></property>-->
+<!--        <property name="username" value="${jdbc.username}"></property>-->
+<!--        <property name="password" value="${jdbc.password}"></property>-->
+<!--    </bean>-->
 
-    <bean id="dataSources" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-<!--        set方法后面的东西，该小写,参数用value，对象用ref-->
-        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/book"></property>
-        <property name="user" value="root"></property>
-        <property name="password" value="zhangtao579"></property>
-    </bean>
+<!--    <bean id="dataSources" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+<!--&lt;!&ndash;        set方法后面的东西，该小写,参数用value，对象用ref&ndash;&gt;-->
+<!--        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>-->
+<!--        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/book"></property>-->
+<!--        <property name="user" value="root"></property>-->
+<!--        <property name="password" value="zhangtao579"></property>-->
+<!--    </bean>-->
 <!--    <bean id="dataSources_d" class="com.alibaba.druid.pool.DruidDataSource">-->
 <!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>-->
 <!--        <property name="url" value="jdbc:mysql://localhost:3306/book"></property>-->
 <!--        <property name="username" value="root"></property>-->
 <!--        <property name="password" value="zhangtao579"></property>-->
 <!--    </bean>-->
+<!--    组件扫描-->
+<!--    <context:component-scan base-package="zt" />-->
 </beans>
