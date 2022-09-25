@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/mvc/pom.xml" />
         <option value="$PROJECT_DIR$/mvc_1/pom.xml" />
         <option value="$PROJECT_DIR$/mvc_2/pom.xml" />
+        <option value="$PROJECT_DIR$/jdbc/pom.xml" />
       </list>
     </option>
   </component>

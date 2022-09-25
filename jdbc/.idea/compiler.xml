@@ -6,19 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mvc_2" />
         <module name="jdbc" />
-        <module name="anno" />
-        <module name="mvc" />
-        <module name="mvc_1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="anno" target="8" />
       <module name="jdbc" target="8" />
-      <module name="mvc" target="8" />
-      <module name="mvc_1" target="8" />
-      <module name="mvc_2" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
