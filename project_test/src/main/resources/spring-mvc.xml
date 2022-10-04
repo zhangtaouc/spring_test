@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+        ">
+    <!--1、mvc注解驱动-->
+    <mvc:annotation-driven />
+    <!--2、配置视图解析器,为了解析直接跳转jsp-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--前缀-->
+        <property name="prefix" value="/page"></property>
+        <!--后缀-->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <bean id="roleDao" class="dao.imp.RoleDaoImpl">
+        <property name="jdbc" ref="jdbcTemplate" />
+    </bean>
+    <bean id="roleService" class="service.impl.RoleServiceImpl">
+        <property name="roleDao" ref="roleDao" />
+    </bean>
+<!--    <bean id="roleControlle" class="controller.RolerController">-->
+<!--        <property name="roleService" ref="roleService" />-->
+<!--    </bean>-->
+
+    <!--配置userDao-->
+    <bean id="userDao" class="dao.imp.UserDaoImpl">
+        <property name="jdbc" ref="jdbcTemplate"/>
+    </bean>
+    <!--配置userService-->
+    <bean id="userService" class="service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao" />
+        <property name="roleDao" ref="roleDao" />
+    </bean>
+    <!--3、静态资源访问权限开放-->
+    <mvc:default-servlet-handler />
+    <!--4、组件扫描-->
+    <context:component-scan base-package="controller" />
+
+    <!--5、配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--对哪些进行拦截（全部拦截）-->
+            <mvc:mapping path="/**"/>
+            <!--登录不拦截-->
+            <mvc:exclude-mapping path="/user/login"/>
+            <bean class="interceptor.MyInterceptorl" />
+            </mvc:interceptor>
+        </mvc:interceptors>
+    </beans>
