@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--目标对象-->
+    <bean id="target" class="aop.Target" />
+
+    <!--切面对象-->
+    <bean id="myAspect" class="aop.MyAspect" />
+
+    <!--告诉spring框架,哪些方法(切点)需要哪些增强(前置,后置): 配置织入-->
+    <aop:config>
+        <!--声明切面-->
+        <aop:aspect ref="myAspect">
+            <!--抽取切点表达式-->
+            <aop:pointcut id="MyPointcut" expression="execution(* aop.*.*(..))"/>
+            <!--测试表达式抽取,和下面一样-->
+            <aop:around method="MyAround" pointcut-ref="MyPointcut" />
+            <!--切点+通知-->
+            <aop:around method="MyAround" pointcut="execution(public void aop.*.*(..))" /> <!--环绕-->
+            <aop:before method="MyBefore" pointcut="execution(public void aop.*.*(..))"/> <!--前置增强和被增强的方法-->
+            <aop:after-returning method="MyBefore" pointcut="execution(* aop.*.*(..))" /> <!--后置增强和被增强的方法-->
+            <aop:after-throwing method="MyThrowing" pointcut="execution(* aop.*.*(..))" /><!--抛出异常的方法-->
+        </aop:aspect>
+    </aop:config>
+</beans>
