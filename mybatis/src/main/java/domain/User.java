@@ -16,6 +16,7 @@ public class User {
     }
 
     public String getUsername() {
+        System.out.println("张老道被使用了");
         return username;
     }
 

@@ -5,8 +5,23 @@
 
 <mapper namespace="UserMapper">
     <!--    查询-->
-    <select id="findAll" resultType="domain.User">
+    <select id="findAll" resultType="user">
         select * from user
     </select>
     <!--插入-->
+    <insert id="save" parameterType="user">
+        insert into user values(#{id}, #{username}, #{password})
+    </insert>
+    <!--修改-->
+    <update id="update" parameterType="user">
+        update user set username=#{username}, password=#{password} where id=#{id}
+    </update>
+    <!--删除,根据id删除,我要传过来一个数字，只传一个参数的时候可以随便写参数-->
+    <delete id="delete" parameterType="int">
+        delete from user where id= #{id}
+    </delete>
+    <!--查询一个-->
+    <select id="getUserById" parameterType="int" resultType="user">
+        select * from user where id = #{id}
+    </select>
 </mapper>
