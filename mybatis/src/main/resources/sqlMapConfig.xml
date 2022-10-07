@@ -9,6 +9,7 @@
     <!--自定义别名-->
     <typeAliases>
         <typeAlias type="domain.User" alias="user" />
+        <typeAlias type="zt1.domain.User" alias="userzt1" />
     </typeAliases>
     <!--数据源环境-->
     <environments default="development">
@@ -25,5 +26,6 @@
     <!--加载映射文件-->
     <mappers>
         <mapper resource="mapper/UserMapper.xml" />
+        <mapper resource="mapper/UserMapperZT1.xml" />
     </mappers>
 </configuration>
