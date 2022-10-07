@@ -10,6 +10,7 @@
     <typeAliases>
         <typeAlias type="domain.User" alias="user" />
         <typeAlias type="zt1.domain.User" alias="userzt1" />
+        <typeAlias type="dynamics.domain.User" alias="dynamics_user" />
     </typeAliases>
     <!--数据源环境-->
     <environments default="development">
@@ -27,5 +28,6 @@
     <mappers>
         <mapper resource="mapper/UserMapper.xml" />
         <mapper resource="mapper/UserMapperZT1.xml" />
+        <mapper resource="mapper/dynamicsUserMapper.xml" />
     </mappers>
 </configuration>
