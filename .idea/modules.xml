@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/mvc/mvc.iml" filepath="$PROJECT_DIR$/mvc/mvc.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvc_1/mvc_1.iml" filepath="$PROJECT_DIR$/mvc_1/mvc_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvc_2/mvc_2.iml" filepath="$PROJECT_DIR$/mvc_2/mvc_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_config/mybatis_config.iml" filepath="$PROJECT_DIR$/mybatis_config/mybatis_config.iml" />
       <module fileurl="file://$PROJECT_DIR$/project_test/project_test.iml" filepath="$PROJECT_DIR$/project_test/project_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring.iml" filepath="$PROJECT_DIR$/.idea/spring.iml" />
     </modules>

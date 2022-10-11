@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/mvc_2/pom.xml" />
         <option value="$PROJECT_DIR$/jdbc/pom.xml" />
         <option value="$PROJECT_DIR$/project_test/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis_config/pom.xml" />
       </list>
     </option>
   </component>

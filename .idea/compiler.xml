@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="project_test" />
-        <module name="mvc_2" />
-        <module name="jdbc" />
         <module name="anno" />
+        <module name="jdbc" />
         <module name="mvc" />
         <module name="mvc_1" />
+        <module name="mvc_2" />
+        <module name="mybatis_config" />
+        <module name="project_test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +21,7 @@
       <module name="mvc" target="8" />
       <module name="mvc_1" target="8" />
       <module name="mvc_2" target="8" />
+      <module name="mybatis_config" target="1.5" />
       <module name="project_test" target="1.7" />
     </bytecodeTargetLevel>
   </component>

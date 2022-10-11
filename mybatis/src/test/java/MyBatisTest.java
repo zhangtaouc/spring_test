@@ -46,8 +46,8 @@ public class MyBatisTest {
         // 查询
          List<User> userList = sqlSession.selectList("UserMapper.findAll");
         System.out.println(userList);
-        User user1 = sqlSession.selectOne("UserMapper.getUserById", 2);
-        System.out.println(user1);
+//        User user1 = sqlSession.selectOne("UserMapper.getUserById", 2);
+//        System.out.println(user1);
 
         // 释放资源
         sqlSession.close();
