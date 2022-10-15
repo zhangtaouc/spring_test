@@ -16,6 +16,7 @@ public class configTest {
         UserDao mapper = sqlSession.getMapper(UserDao.class);
 //        mapper.save(user);
 //        sqlSession.commit();
+        System.out.println(mapper);
         List<User> userList = mapper.getAll();
         System.out.println(userList);
         sqlSession.close();

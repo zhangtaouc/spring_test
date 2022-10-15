@@ -27,7 +27,7 @@
     </select>
 
     <select id="getAll" resultType="config_user">
-        select * from user
+        <include refid="selectUser" />
     </select>
 
     <select id="findByIds" resultType="config_user" parameterType="List">
